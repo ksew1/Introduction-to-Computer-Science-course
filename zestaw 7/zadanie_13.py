@@ -7,16 +7,13 @@ class Node:
 def f(p):
     min_val = p.val
     if p.next is not None:
-        while p.next.next is not None:
+        while p.next is not None:
             if p.next.val < min_val:
                 p.next = p.next.next
 
             else:
                 p = p.next
                 min_val = p.val
-
-        if p.next.val < min_val:
-            p.next = None
 
 
 def print_set(p):

@@ -52,5 +52,5 @@ for i in ["q", "r", "t"]:
     pointer.next = Node(i)
     pointer = pointer.next
 print_set(first)
-print(f(first, "a"))
+print(f(first, "z"))
 print_set(first)

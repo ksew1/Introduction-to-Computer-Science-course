@@ -4,26 +4,24 @@ class Node:
         self.next = None
 
 
-def remove(key):
-    one = 0
-    two = 0
+def check(key):
+    five = 0
     while key > 0:
-        if key % 3 == 1:
-            one += 1
-        elif key % 3 == 2:
-            two += 1
-        key //= 3
-    return one > two
+        if key % 8 == 5:
+            five += 1
+        key //= 8
+    return five % 2 == 0
 
 
 def f(pointer):
     p = pointer
-    if remove(p.val):
-        pointer = pointer.next
-        p = p.next
     while p.next is not None:
-        if remove(p.next.val):
+        print(p.next.val)
+        if check(p.next.val):
+            temp = p.next
             p.next = p.next.next
+            temp.next = pointer
+            pointer = temp
         else:
             p = p.next
     return pointer
@@ -36,9 +34,9 @@ def print_set(p):
     print()
 
 
-first = Node(3)
+first = Node(2)
 pointer1 = first
-for i in [2, 4, 2, 6, 2, 5, 10]:
+for i in [6, 1, 5, 10, 4, 12]:
     pointer1.next = Node(i)
     pointer1 = pointer1.next
 print_set(first)

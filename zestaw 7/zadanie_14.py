@@ -7,15 +7,12 @@ class Node:
 def f(p):
     val = p.val
     if p.next is not None:
-        while p.next.next is not None:
+        while p.next is not None:
             if p.next.val % val == 0:
                 p.next = p.next.next
             else:
                 p = p.next
                 val = p.val
-
-        if p.next.val % val == 0:
-            p.next = None
 
 
 def print_set(p):
