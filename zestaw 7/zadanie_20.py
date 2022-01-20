@@ -4,6 +4,7 @@ class Node:
         self.b = b
         self.next = None
 
+
 def f(pointer):
     p = pointer
     last = pointer
@@ -20,13 +21,13 @@ def f(pointer):
 
         if changes:
             q.next = Node(p.a, p.b)
-            if p == last:
+            if p == pointer:
                 pointer = pointer.next
             else:
-                pointer = pointer.next
                 last.next = p.next
             p = last.next
         else:
+            last = p
             p = p.next
     return pointer
 

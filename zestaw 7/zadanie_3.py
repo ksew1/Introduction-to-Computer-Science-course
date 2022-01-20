@@ -7,7 +7,6 @@ class Node:
 def f(p1, p2):
     core = Node(None)
     p = core
-    i = 0
     while p2 is not None and p1 is not None:
         if p2.val > p1.val:
             p.next = p1

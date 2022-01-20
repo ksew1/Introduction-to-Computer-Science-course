@@ -4,15 +4,18 @@ class Node:
         self.next = None
 
 
-def f(p):
-    val = p.val
-    if p.next is not None:
-        while p.next is not None:
-            if p.next.val % val == 0:
-                p.next = p.next.next
-            else:
-                p = p.next
-                val = p.val
+def reverse(p):
+    if p.next is None:
+        return p
+    q = p.next
+    p.next = None
+    while q is not None:
+        temp = q.next
+        q.next = p
+        p = q
+        q = temp
+
+    return p
 
 
 def print_set(p):
@@ -22,12 +25,12 @@ def print_set(p):
     print()
 
 
-first = Node(3)
+first = Node(1)
 pointer = first
-for i in [2, 4, 2, 6, 2, 5, 10]:
+for i in [2,3,4,5,6,7,8,9]:
     pointer.next = Node(i)
     pointer = pointer.next
-print(first)
 print_set(first)
-f(first)
+first = reverse(first)
 print_set(first)
+

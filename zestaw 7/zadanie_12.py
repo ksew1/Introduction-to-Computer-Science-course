@@ -18,7 +18,6 @@ def f(point, string):
             first = temp
             continue
         while p.next.next is not None:
-            p = p.next
             if ord(p.next.char) == ord(c):
                 break
             if ord(p.next.char) > ord(c):
@@ -26,6 +25,7 @@ def f(point, string):
                 temp = Node(c)
                 p.next, temp.next = temp, p.next
                 break
+            p = p.next
         else:
             ans = False
             temp = Node(c)
